@@ -1,6 +1,7 @@
 package com.shoperk;
 
 import com.shoperk.config.WebConfig;
+import com.shoperk.entity.Shopkeeper;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -15,7 +16,7 @@ import javax.servlet.ServletRegistration;
  */
 public class ApplicationInstalation implements WebApplicationInitializer{
     private final static String DISPATCHER="dispatcher";
-    @Override
+
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext ctx=new AnnotationConfigWebApplicationContext();
         ctx.register(WebConfig.class);
@@ -23,5 +24,5 @@ public class ApplicationInstalation implements WebApplicationInitializer{
         ServletRegistration.Dynamic servlet=servletContext.addServlet(DISPATCHER,new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
-    }
+        }
 }
