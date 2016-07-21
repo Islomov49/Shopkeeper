@@ -42,12 +42,21 @@ public class ShopKeepController {
     }
 
 
-    @RequestMapping(value = "/putkeepers",method = RequestMethod.POST)
+    @RequestMapping(value = "/auth/put",method = RequestMethod.POST)
     @ResponseBody
-    public Shopkeeper saveReminders(@RequestBody Shopkeeper shopkeeper){
+    public Shopkeeper saveShopKeeprs(@RequestBody Shopkeeper shopkeeper){
 
         return shopkeeperService.save(shopkeeper);
     }
+
+
+    @RequestMapping(value = "/ananim/put",method = RequestMethod.POST)
+    @ResponseBody
+    public Shopkeeper saveAnanimShopKeepers(@RequestBody Shopkeeper shopkeeper){
+
+        return shopkeeperService.save(shopkeeper);
+    }
+
 
     @RequestMapping(value = "/keepers/{id}",method = RequestMethod.POST)
     @ResponseBody
