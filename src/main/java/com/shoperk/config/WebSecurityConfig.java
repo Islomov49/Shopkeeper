@@ -38,6 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter  {
         httpSecurity.
                 authorizeRequests()
 
+                .antMatchers("/")
+                .permitAll()
                 .antMatchers("/test")
                 .permitAll()
                 .antMatchers("/ananim/put")
